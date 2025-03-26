@@ -55,16 +55,27 @@ const getBadgeColor = (statut: string) => {
 
 const ListeDemandes = () => {
   return (
-    <View style={{ padding: 20, paddingTop: 50 }}>
-      <Text style={{ fontSize: 24, fontWeight: "bold" }}>liste de vos demandes</Text>
+    <View style={{ padding: 20, paddingTop: 50, flex: 1 }}>
+      <Text style={{ fontSize: 24, fontWeight: "bold", 
+        marginBottom: 20, 
+        color:"#1466b8" }}>Liste de vos demandes</Text>
       <FlatList
         data={demandes}
+        numColumns={2}
+        columnWrapperStyle={{ justifyContent: "space-between" }}
         keyExtractor={(item) => item.id}
+        contentContainerStyle={{ paddingBottom: 20, marginTop: 5 }}
         renderItem={({ item }) => (
-          <Card style={{ marginBottom: 15, borderRadius: 10, elevation: 5 }}>
+          <Card style={{ marginBottom: 10, 
+          borderRadius: 10, 
+          elevation: 5,
+          flex: 1,
+          marginHorizontal: 5,
+          maxWidth: "48%",
+          }}>
             <Card.Cover source={{ uri: item.image }} style={{ height: 100 }} />
             <Card.Content>
-              <Text variant="titleMedium" style={{ fontWeight: "bold", marginTop: 10 }}>
+              <Text variant="titleMedium" style={{ fontWeight: "bold", marginTop: 10, color:"#1466b8" }}>
                 {item.materiel}
               </Text>
               <Text variant="bodyMedium" style={{ color: "#666", marginVertical: 5 }}>
